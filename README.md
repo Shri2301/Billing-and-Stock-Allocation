@@ -14,6 +14,11 @@ This project was originally developed as an internal automation tool to handle e
 - Flags and separates problematic entries (zero net amount, invalid discounts, allocation issues).
 - Outputs clean and error data into a structured Excel file.
 
+# Tech Stack
+- Python (pandas, openpyxl, mysql-connector)
+- MySQL (local/mock database)
+- Excel (xlsx) input/output handling
+
 **Note:** This repository contains a **demo version** of a project originally developed for internal use at a company.  
 All data, folder structures, and database connections have been **mocked or sanitized** to make it suitable for public release.
 
