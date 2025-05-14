@@ -3,20 +3,18 @@ import os
 import glob
 from sqlalchemy import create_engine, text
 
-# -- All Paths --
+# -- All Data Paths --
 Folder_path = r"D:\Shriyash\Projects\Billing and Stock Allocation\Data"
-FBA_Shipments_path = r"D:\Shriyash\Projects\Billing and Stock Allocation\Data\FBA Shipments.csv"
-FBA_Sale_and_Inventory_Report_path = r"D:\Shriyash\Projects\Billing and Stock Allocation\Data\FBA Sale & Inventory Report.xlsx"
-Viability_sheet_path = r"D:\Shriyash\Projects\Billing and Stock Allocation\Data\Viability Sheet.xlsx"
-b2c_path = r"D:\Shriyash\Projects\Billing and Stock Allocation\Data\GST_MTR_B2C*.csv.csv"
-b2b_path = r"D:\Shriyash\Projects\Billing and Stock Allocation\Data\GST_MTR_B2B*.csv"
-All_Orders_path = r"D:\Shriyash\Projects\Billing and Stock Allocation\Data\All Orders.txt"
-output_excel_path = r"D:\Shriyash\Projects\Billing and Stock Allocation\Output.xlsx"
+FBA_Shipments_path = os.path.join(Folder_path, "FBA Shipments.csv")
+FBA_Sale_and_Inventory_Report_path = os.path.join(Folder_path, "FBA Sale & Inventory Report.xlsx")
+Viability_sheet_path = os.path.join(Folder_path, "Viability Sheet.xlsx")
+All_Orders_path = os.path.join(Folder_path, "All Orders.txt")
+output_excel_path = os.path.join(os.path.dirname(Folder_path), "Output.xlsx")  # one level up from Folder_path
 
 # -- Function to get SQL data and create a dataframe --
 def get_sql_data(state_name):
     try:
-        engine = create_engine("mysql+pymysql://root:abc123@localhost/State_Stock_Data")
+        engine = create_engine("mysql+pymysql://"DB_USER":"DB_PASSWORD"@localhost/State_Stock_Data")
         with engine.connect() as connection:
             query = f"SELECT * FROM `{state_name}_data`"
             df = pd.read_sql(text(query), connection)
@@ -426,16 +424,7 @@ df_combined_errors = pd.concat(
 # -- Exporting dataframes as excel sheets --
 try:
     with pd.ExcelWriter(output_excel_path, engine="openpyxl") as writer:
-        df_FBA_Sale_and_Inventory_Report.to_excel(writer, sheet_name="Amz fulfilled shipments", index=False)
-        df_viability.to_excel(writer, sheet_name="Viability", index=False)
-        df_b2c.to_excel(writer, sheet_name="B2C", index=False)
-        df_b2b.to_excel(writer, sheet_name="B2B", index=False)
-        df_All_Orders.to_excel(writer, sheet_name="All Orders", index=False)
         df_FBA_shipments.to_excel(writer, sheet_name="Today's FBA Shipments", index=False)
-        df_maharashtra_data.to_excel(writer, sheet_name="Maharashtra Data", index=False)
-        df_karnataka_data.to_excel(writer, sheet_name="Karnataka Data", index=False)
-        df_gujarat_data.to_excel(writer, sheet_name="Gujarat Data", index=False)
-        df_haryana_data.to_excel(writer, sheet_name="Haryana Data", index=False)
         df_MAHARASHTRA.to_excel(writer, sheet_name="Maharashtra", index=False)
         df_KARNATAKA.to_excel(writer, sheet_name="KARNATAKA", index=False)
         df_GUJARAT.to_excel(writer, sheet_name="GUJARAT", index=False)

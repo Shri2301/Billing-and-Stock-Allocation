@@ -29,5 +29,15 @@ This demo replicates the logic and workflow using:
 
 All sensitive or proprietary elements have been removed or replaced with publicly shareable placeholders.
 
-
-
+**Steps to run this project:**
+- Prerequisites
+  Python 3.8+. Make sure Python is installed. You can download it from python.org.
+- Clone the Repository
+- Install Dependencies
+  pip install -r requirements.txt
+- Create local database
+  Replace "DB_USER" and "DB_PASSWORD" in `Generate_db.py` to your local credentials at lines 5 & 12. Replace the `file_path` to the respective local path at line 16. Run the script and database will be created.
+- Make changes in main script
+  In `Main.py` replace "DB_USER" and "DB_PASSWORD" at line 17 and replace `Folder_path` with your local "Data Folder" path at line 7.
+- Run main script
+- Output is stored in "Output.xlsx" file
