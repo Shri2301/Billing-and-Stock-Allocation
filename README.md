@@ -51,4 +51,4 @@ All sensitive or proprietary elements have been removed or replaced with publicl
 - Run main script
   ```bash
   python Main.py
-- Output is stored in "Output.xlsx" file
+- Output is stored in `Output.xlsx` file
