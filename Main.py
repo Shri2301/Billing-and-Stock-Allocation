@@ -14,7 +14,7 @@ output_excel_path = os.path.join(os.path.dirname(Folder_path), "Output.xlsx")  #
 # -- Function to get SQL data and create a dataframe --
 def get_sql_data(state_name):
     try:
-        engine = create_engine("mysql+pymysql://"DB_USER":"DB_PASSWORD"@localhost/State_Stock_Data")
+        engine = create_engine("mysql+pymysql://root:abc123@localhost/State_Stock_Data")
         with engine.connect() as connection:
             query = f"SELECT * FROM `{state_name}_data`"
             df = pd.read_sql(text(query), connection)

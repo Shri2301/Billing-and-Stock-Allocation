@@ -2,14 +2,14 @@ import pandas as pd
 from sqlalchemy import create_engine, text
 
 # MySQL connection string (without the database part)
-engine = create_engine("mysql+pymysql://"DB_USER":"DB_PASSWORD"@localhost/")
+engine = create_engine("mysql+pymysql://root:abc123@localhost/")
 
 # Create database if not exists
 with engine.connect() as connection:
     connection.execute(text("CREATE DATABASE IF NOT EXISTS state_stock_data"))
 
 # Now, connect to the created database
-engine = create_engine("mysql+pymysql://"DB_USER":"DB_PASSWORD"@localhost/state_stock_data")
+engine = create_engine("mysql+pymysql://root:abc123@localhost/state_stock_data")
 
 # Read Excel
 

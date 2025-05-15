@@ -33,11 +33,22 @@ All sensitive or proprietary elements have been removed or replaced with publicl
 - Prerequisites
   Python 3.8+. Make sure Python is installed. You can download it from python.org.
 - Clone the Repository
+  ```bash
+  git clone <your-repository-url>
+- Navigate to the project folder
+  ```bash
+  cd .\Billing_and_Stock_Allocation\
 - Install Dependencies
+  ```bash
   pip install -r requirements.txt
 - Create local database
-  Replace "DB_USER" and "DB_PASSWORD" in `Generate_db.py` to your local credentials at lines 5 & 12. Replace the `file_path` to the respective local path at line 16. Run the script and database will be created.
+  In `Generate_db.py` replace "DB_USER" and "DB_PASSWORD" in `Generate_db.py` with your <db_user> and <db_password> at lines 5 & 12. Replace the `file_path` to the respective local path at line 16. 
+  Run the script.
+  ```bash
+  python Generate_db.py
 - Make changes in main script
-  In `Main.py` replace "DB_USER" and "DB_PASSWORD" at line 17 and replace `Folder_path` with your local "Data Folder" path at line 7.
+  In `Main.py` replace "DB_USER" and "DB_PASSWORD" with your <db_user> and <db_password> at line 17 and replace `Folder_path` with your local <Data Folder> path at line 7.
 - Run main script
+  ```bash
+  python Main.py
 - Output is stored in "Output.xlsx" file
