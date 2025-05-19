@@ -1,9 +1,9 @@
 # Billing-Automation-for-FBA (Fulfilled By Amazon)
 
-# Project Overview
+## Project Overview
 This project was originally developed as an internal automation tool to handle end-to-end processing of Amazon FBA shipment and inventory data. It automated the process of billing, stock allocation, and error detection using data from Amazon FBA shipments, inventory reports, GST filings, and a SQL database. It helped streamline order management, validate data, allocate stock intelligently, and flag problematic entries.
 
-# Features
+## Features
 - Reads and cleans Amazon FBA shipment data.
 - Compares against actual fulfilled shipments to remove duplicates.
 - Merges product metadata (MOQ, Modified SKU) from a viability sheet.
@@ -14,7 +14,7 @@ This project was originally developed as an internal automation tool to handle e
 - Flags and separates problematic entries (zero net amount, invalid discounts, allocation issues).
 - Outputs clean and error data into a structured Excel file.
 
-# Tech Stack
+## Tech Stack
 - Python (pandas, openpyxl, mysql-connector)
 - MySQL (local/mock database)
 - Excel (xlsx) input/output handling
@@ -29,7 +29,7 @@ This demo replicates the logic and workflow using:
 
 All sensitive or proprietary elements have been removed or replaced with publicly shareable placeholders.
 
-**Steps to run this project:**
+## Steps to run this project:
 - Prerequisites
   Python 3.8+. Make sure Python is installed. You can download it from python.org.
 - Clone the Repository
